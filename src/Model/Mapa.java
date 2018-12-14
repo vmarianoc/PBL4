@@ -10,5 +10,9 @@ package Model;
  * @author vitor
  */
 public class Mapa {
+    Cidade listaCidades[];
+    
+    
+    
     
 }
