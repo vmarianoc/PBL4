@@ -5,14 +5,19 @@
  */
 package Model;
 
+import java.awt.List;
+import java.util.LinkedList;
+
+
+
 /**
  *
  * @author vitor
  */
 public class Mapa {
-    Cidade listaCidades[];
+    private LinkedList<Cidade> mapa = new LinkedList<>();
     
-    
-    
-    
+    public void add(Cidade e){
+        mapa.add(e);
+    }
 }
