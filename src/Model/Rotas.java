@@ -10,23 +10,29 @@ package Model;
  * @author vitor
  */
 public class Rotas {
-    private String origem;
-    private String destino;
+    private Cidade origem;
+    private Cidade destino;
     private int distancia;
 
-    public String getOrigem() {
+    public Rotas(Cidade origem, Cidade destino, int distancia) {
+        this.origem = origem;
+        this.destino = destino;
+        this.distancia = distancia;
+    }
+
+    public Cidade getOrigem() {
         return origem;
     }
 
-    public void setOrigem(String origem) {
+    public void setOrigem(Cidade origem) {
         this.origem = origem;
     }
 
-    public String getDestino() {
+    public Cidade getDestino() {
         return destino;
     }
 
-    public void setDestino(String destino) {
+    public void setDestino(Cidade destino) {
         this.destino = destino;
     }
 
@@ -38,11 +44,7 @@ public class Rotas {
         this.distancia = distancia;
     }
 
-    public Rotas(String origem, String destino, int distancia) {
-        this.origem = origem;
-        this.destino = destino;
-        this.distancia = distancia;
-    }
+
     
     
 }
