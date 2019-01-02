@@ -32,16 +32,31 @@ public class Leitura {
         Fecha arquivo
         Retorna o mapa
         */
+        String array[];
         Cidade nova;
+        Cidade nova2;
         String cidade;
         mapa = new Mapa();
         try{
             FileReader arq = new FileReader(f1);
             BufferedReader lerArq = new BufferedReader(arq);
-            
             while((cidade = lerArq.readLine()) != null){
-                nova = dadosCidade(cidade);
-                mapa.add(nova);
+                array = cidade.split(";");
+                nova = dadosCidade(array[3], array[4], array[0]);
+                nova2 = dadosCidade(array[5], array[6], array[1]);
+                if(mapa.contains(nova) && mapa.contains(nova2)){
+                    mapa.add_rota(nova, nova2, array[2]);
+                }else if (mapa.contains(nova) && !mapa.contains(nova2)){
+                    mapa.add(nova2);
+                    mapa.add_rota(nova, nova2, array[2]);
+                }else if(!mapa.contains(nova)&& mapa.contains(nova2)){
+                    mapa.add(nova);
+                    mapa.add_rota(nova, nova2, array[2]);
+                }else{
+                    mapa.add(nova);
+                    mapa.add(nova2);
+                    mapa.add_rota(nova, nova2, array[2]);
+                }
             }
         }catch(FileNotFoundException e){
             throw e;
@@ -49,19 +64,17 @@ public class Leitura {
         return mapa;
     }
     
-    public Cidade dadosCidade(String linha){
+
+    private Cidade dadosCidade(String x, String y, String nome){
         /*
         Método recebe uma linha inteira, divide os dados e coloca em uma cidade
         */
         Cidade cidade;
-        String[] array;
-        int x;
-        int y;
-        array = linha.split(";");
-        x = Integer.parseInt(array[3]);
-        y = Integer.parseInt(array[4]);
-        cidade = new Cidade(x, y, array[0]);
-       
+        int a;
+        int b;  
+        a = Integer.parseInt(x);
+        b = Integer.parseInt(y);
+        cidade = new Cidade(a, b, nome);
         return cidade;
     }
 }

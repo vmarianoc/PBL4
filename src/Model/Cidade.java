@@ -14,6 +14,7 @@ import java.util.Objects;
  * @author vitor
  */
 public class Cidade {
+
     private int x;
     private int y;
     private String nome;
@@ -51,10 +52,10 @@ public class Cidade {
     public void setSelecionado(boolean selecionado) {
         this.selecionado = selecionado;
     }
-    
-    public void adicionaAdj(Rotas rota){
+
+    public void adicionaAdj(Rotas rota) {
         adjacente.add(rota);
-    } 
+    }
 
     public List<Rotas> getAdjacente() {
         return adjacente;
@@ -68,36 +69,10 @@ public class Cidade {
 
     @Override
     public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
+        if (obj instanceof Cidade) {
+            Cidade aux = (Cidade) obj;
+            return x == aux.getX() && y == aux.getY() && this.nome.equals(aux.getNome());
         }
-        if (obj == null) {
-            return false;
-        }
-        if (getClass() != obj.getClass()) {
-            return false;
-        }
-        final Cidade other = (Cidade) obj;
-        if (this.x != other.x) {
-            return false;
-        }
-        if (this.y != other.y) {
-            return false;
-        }
-        if (!Objects.equals(this.nome, other.nome)) {
-            return false;
-        }
-        return true;
+        return false;
     }
-
-    public Cidade(int x, int y, String nome) {
-        this.x = x;
-        this.y = y;
-        this.nome = nome;
-        this.selecionado = false;
-        this.adjacente = new ArrayList<Rotas>();
-    }
-    
-    
-    
 }

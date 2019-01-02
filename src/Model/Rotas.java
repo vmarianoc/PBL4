@@ -10,6 +10,7 @@ package Model;
  * @author vitor
  */
 public class Rotas {
+
     private Cidade origem;
     private Cidade destino;
     private int distancia;
@@ -44,7 +45,13 @@ public class Rotas {
         this.distancia = distancia;
     }
 
-
-    
-    
+    @Override
+    public boolean equals(Object obj) {
+        if (obj instanceof Rotas) {
+           Rotas aux = (Rotas) obj;
+           return aux.getDestino().equals(this.destino) && aux.getOrigem().equals(this.origem) && aux.getDistancia() == this.distancia;
+        }
+        return false;
+    }
 }
+

@@ -20,4 +20,17 @@ public class Mapa {
     public void add(Cidade e){
         mapa.add(e);
     }
+    
+    public boolean contains(Cidade e){
+        return mapa.contains(e);
+    }
+    
+    public void add_rota(Cidade origem, Cidade destino, String distancia){
+        int x;
+        x = Integer.parseInt(distancia);
+        Rotas aux = new Rotas(origem, destino, x);
+        if()
+            origem.adicionaAdj(aux);
+            destino.adicionaAdj(aux);
+    }
 }
