@@ -6,6 +6,8 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -21,6 +23,13 @@ public class Cidade {
     private boolean selecionado;
     private List<Rotas> adjacente;
 
+    public Cidade(int x, int y, String nome){
+        this.x = x;
+        this.y = y;
+        this.nome = nome;
+        adjacente = new LinkedList<>();
+    }
+    
     public int getX() {
         return x;
     }
@@ -54,11 +63,13 @@ public class Cidade {
     }
 
     public void adicionaAdj(Rotas rota) {
-        adjacente.add(rota);
+        if(!adjacente.contains(rota)){
+            adjacente.add(rota);
+        }
     }
 
-    public List<Rotas> getAdjacente() {
-        return adjacente;
+    public Iterator getAdjacente() {
+        return adjacente.iterator();
     }
 
     @Override
