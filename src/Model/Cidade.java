@@ -16,7 +16,8 @@ import java.util.Objects;
  * @author vitor
  */
 public class Cidade {
-
+    
+    private int peso;
     private int x;
     private int y;
     private String nome;
@@ -67,6 +68,14 @@ public class Cidade {
             adjacente.add(rota);
         }
     }
+    
+    public void setPeso(int valor){
+        peso = valor;
+    }
+    
+    public int getPeso(){
+        return peso;
+    }
 
     public Iterator getAdjacente() {
         return adjacente.iterator();
@@ -77,7 +86,7 @@ public class Cidade {
         int hash = 3;
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Cidade) {
