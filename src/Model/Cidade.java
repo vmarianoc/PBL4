@@ -17,6 +17,7 @@ import java.util.Objects;
  */
 public class Cidade {
     
+    private Cidade anterior;
     private int peso;
     private int x;
     private int y;
@@ -67,6 +68,14 @@ public class Cidade {
         if(!adjacente.contains(rota)){
             adjacente.add(rota);
         }
+    }
+    
+    public void setAnterior(Cidade a){
+        anterior = a;
+    }
+    
+    public Cidade getAnterior(){
+        return anterior;
     }
     
     public void setPeso(int valor){
