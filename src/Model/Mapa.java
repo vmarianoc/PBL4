@@ -32,6 +32,9 @@ public class Mapa {
      * Metodo responsavel por adicionar as rotas as cidades. Busca em uma lista
      * a cidade origem ou destino e então adiciona a rota a esta cidade caso
      * encontre.
+     * @param origem
+     * @param destino
+     * @param distancia
      **/
     public void add_rota(Cidade origem, Cidade destino, String distancia) {
         Iterator it = mapa.iterator();

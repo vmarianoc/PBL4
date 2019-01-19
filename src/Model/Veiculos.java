@@ -13,7 +13,7 @@ public class Veiculos {
     
     private String nome;
     private double consumo;
-
+    
     public String getNome() {
         return nome;
     }
