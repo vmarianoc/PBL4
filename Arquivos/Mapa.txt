@@ -1,4 +1,4 @@
-﻿Feira de Santana; Salvador; 100; 0; 0; 100; 0;
+Feira de Santana; Salvador; 100; 0; 0; 100; 0;
 Feira de Santana; Abaira; 600; 0; 0; 800; 200;
 Salvador; Abaira; 616; 100; 0; 800; 200;
 Abaira; Acajutiba; 200; 800; 200; 100; 200;

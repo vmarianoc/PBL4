@@ -47,8 +47,7 @@ public class LeituraTest {
        assertEquals(a, it.next());
        
        assertTrue(it.hasNext());
-       //assertEquals(b, it.next());
-       it.next();
+       assertEquals(b, it.next());
        
        assertTrue(it.hasNext());
        assertEquals(c, it.next());

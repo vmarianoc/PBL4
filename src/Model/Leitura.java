@@ -22,7 +22,7 @@ public class Leitura {
     Mapa mapa;
 
     public Leitura() {
-        f1 = new File(".\\Arquivos\\arquivodeentrada.txt");
+        f1 = new File(".\\Arquivos\\Mapa.txt");
     }
 
     public Mapa readFile() throws FileNotFoundException, IOException {
@@ -68,7 +68,7 @@ public class Leitura {
         int b;
         a = Integer.parseInt(x.trim());
         b = Integer.parseInt(y.trim());
-        cidade = new Cidade(a, b, nome);
+        cidade = new Cidade(a, b, nome.trim());
         return cidade;
     }
 }

@@ -18,37 +18,48 @@ import static org.junit.Assert.*;
  * @author gusta
  */
 public class MapaTest {
-    
-    public MapaTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    Mapa aux;
+    Cidade a;
+    Cidade b;
+    Cidade c;
+    Cidade d;
     
     @Before
     public void setUp() {
+        
+        aux = new Mapa();
+        a = new Cidade(0, 0, "Feira de Santana");
+        b = new Cidade(100, 0, "Salvador");
+        c = new Cidade(800, 200, "Abaira");
+        d = new Cidade(100, 200, "Acajutiba");
     }
     
-    @After
-    public void tearDown() {
-    }
-
     /**
      * Test of add method, of class Mapa.
      */
     @Test
     public void testAdd() {
-        System.out.println("add");
-        Cidade e = null;
-        Mapa instance = new Mapa();
-        instance.add(e);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Iterator it;
+        
+        aux.add(a);
+        aux.add(b);
+        aux.add(c);
+        aux.add(d);
+        it = aux.getCidades();
+        
+        assertTrue(it.hasNext());
+        assertEquals(a, it.next());
+        
+        assertTrue(it.hasNext());
+        assertEquals(b, it.next());
+        
+        assertTrue(it.hasNext());
+        assertEquals(c, it.next());
+        
+        assertTrue(it.hasNext());
+        assertEquals(d, it.next());
+        
+        assertFalse(it.hasNext());
     }
 
     /**
@@ -56,28 +67,58 @@ public class MapaTest {
      */
     @Test
     public void testAdd_rota() {
-        System.out.println("add_rota");
-        Cidade origem = null;
-        Cidade destino = null;
-        String distancia = "";
-        Mapa instance = new Mapa();
-        instance.add_rota(origem, destino, distancia);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
-    }
+        Cidade ref;
+        Rotas compara;
+        Iterator it;
+        Iterator it1;
+        
+        aux.add(a);
+        aux.add(b);
+        aux.add_rota(a, b, "100");
+        it = aux.getCidades();
+        
+        ref = (Cidade) it.next();
+        it1 = ref.getAdjacente();
+        
+        assertTrue(it1.hasNext());
+        compara = (Rotas) it1.next();
+        
+        assertEquals(a, compara.getOrigem());
+        assertEquals(b, compara.getDestino());
+        assertEquals(100, compara.getDistancia());
+        
+        assertFalse(it1.hasNext());
+        
+        ref = (Cidade) it.next();
+        it1 = ref.getAdjacente();
+        
+        assertTrue(it1.hasNext());
+        compara = (Rotas) it1.next();
+        
+        assertEquals(a, compara.getOrigem());
+        assertEquals(b, compara.getDestino());
+        assertEquals(100, compara.getDistancia());
+    } 
 
     /**
      * Test of getCidades method, of class Mapa.
      */
     @Test
     public void testGetCidades() {
-        System.out.println("getCidades");
-        Mapa instance = new Mapa();
-        Iterator expResult = null;
-        Iterator result = instance.getCidades();
-        assertEquals(expResult, result);
-        // TODO review the generated test code and remove the default call to fail.
-        fail("The test case is a prototype.");
+        Iterator it;
+        
+        aux.add(c);
+        aux.add(d);
+        
+        it = aux.getCidades();
+        
+        assertTrue(it.hasNext());
+        assertEquals(c, it.next());
+        
+        assertTrue(it.hasNext());
+        assertEquals(d, it.next());
+        
+        assertFalse(it.hasNext());
     }
     
 }

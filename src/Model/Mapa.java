@@ -53,4 +53,8 @@ public class Mapa {
     public Iterator getCidades(){
         return mapa.iterator();
     }
+    
+    public LinkedList<Cidade> getLista(){
+        return mapa;
+    }
 }
