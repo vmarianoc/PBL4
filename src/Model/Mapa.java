@@ -40,7 +40,7 @@ public class Mapa {
         Iterator it = mapa.iterator();
         Cidade p;
         int x;
-        x = Integer.parseInt(distancia);
+        x = Integer.parseInt(distancia.trim());
         Rotas aux = new Rotas(origem, destino, x);
         while(it.hasNext()){
             p = (Cidade) it.next();

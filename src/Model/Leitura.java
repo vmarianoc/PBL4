@@ -66,8 +66,8 @@ public class Leitura {
         Cidade cidade;
         int a;
         int b;
-        a = Integer.parseInt(x);
-        b = Integer.parseInt(y);
+        a = Integer.parseInt(x.trim());
+        b = Integer.parseInt(y.trim());
         cidade = new Cidade(a, b, nome);
         return cidade;
     }
