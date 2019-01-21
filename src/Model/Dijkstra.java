@@ -38,7 +38,7 @@ public class Dijkstra {
         ComparaCidade c = new ComparaCidade();
         menor_caminho.add(origem);
         nao_visitados = infinito(nao_visitados, origem);
-        while (!nao_visitados.isEmpty()){
+        while (!nao_visitados.isEmpty()) {
             atual = (Cidade) nao_visitados.get(0);
             nao_visitados.remove(0);
             visitados.add(atual);
@@ -46,19 +46,19 @@ public class Dijkstra {
             Collections.sort(nao_visitados, c);
         }
         it = visitados.iterator();
-        while(it.hasNext()){
-            aux = (Cidade)it.next();
-            if(aux.equals(destino)){
+        while (it.hasNext()) {
+            aux = (Cidade) it.next();
+            if (aux.equals(destino)) {
                 break;
             }
         }
-        menor_caminho = retornaRota(menor_caminho, aux); 
+        menor_caminho = retornaRota(menor_caminho, aux);
         return menor_caminho;
     }
-    
-    private ArrayList retornaRota(ArrayList a, Cidade b){
+
+    private ArrayList retornaRota(ArrayList a, Cidade b) {
         Cidade aux = b;
-        while(aux.getAnterior()!= null){
+        while (aux.getAnterior() != null) {
             a.add(aux);
             aux = aux.getAnterior();
         }
@@ -94,19 +94,21 @@ public class Dijkstra {
             auxR = (Rotas) it.next();
             ref = getCidade(auxR, b);
             auxC = getCLista(a, ref);
-            if(auxC.getPeso()> auxR.getDistancia()+b.getPeso()){
-                auxC.setPeso(auxR.getDistancia()+b.getPeso());
-                auxC.setAnterior(b);
+            if (auxC != null) {
+                if (auxC.getPeso() > auxR.getDistancia() + b.getPeso()) {
+                    auxC.setPeso(auxR.getDistancia() + b.getPeso());
+                    auxC.setAnterior(b);
+                }
             }
         }
     }
-    
-    private Cidade getCLista(LinkedList a, Cidade b){
+
+    private Cidade getCLista(LinkedList a, Cidade b) {
         Iterator it = a.listIterator();
         Cidade aux;
-        while(it.hasNext()){
-            aux = (Cidade)it.next();
-            if(aux.equals(b)){
+        while (it.hasNext()) {
+            aux = (Cidade) it.next();
+            if (aux.equals(b)) {
                 return aux;
             }
         }
