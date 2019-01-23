@@ -6,6 +6,8 @@
 package Model;
 
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
@@ -14,13 +16,22 @@ import java.util.Objects;
  * @author vitor
  */
 public class Cidade {
-
+    
+    private Cidade anterior;
+    private int peso;
     private int x;
     private int y;
     private String nome;
     private boolean selecionado;
     private List<Rotas> adjacente;
 
+    public Cidade(int x, int y, String nome){
+        this.x = x;
+        this.y = y;
+        this.nome = nome;
+        adjacente = new LinkedList<>();
+    }
+    
     public int getX() {
         return x;
     }
@@ -54,11 +65,29 @@ public class Cidade {
     }
 
     public void adicionaAdj(Rotas rota) {
-        adjacente.add(rota);
+        if(!adjacente.contains(rota)){
+            adjacente.add(rota);
+        }
+    }
+    
+    public void setAnterior(Cidade a){
+        anterior = a;
+    }
+    
+    public Cidade getAnterior(){
+        return anterior;
+    }
+    
+    public void setPeso(int valor){
+        peso = valor;
+    }
+    
+    public int getPeso(){
+        return peso;
     }
 
-    public List<Rotas> getAdjacente() {
-        return adjacente;
+    public Iterator getAdjacente() {
+        return adjacente.iterator();
     }
 
     @Override
@@ -66,7 +95,7 @@ public class Cidade {
         int hash = 3;
         return hash;
     }
-
+    
     @Override
     public boolean equals(Object obj) {
         if (obj instanceof Cidade) {

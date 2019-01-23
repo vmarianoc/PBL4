@@ -49,7 +49,7 @@ public class Rotas {
     public boolean equals(Object obj) {
         if (obj instanceof Rotas) {
            Rotas aux = (Rotas) obj;
-           return aux.getDestino().equals(this.destino) && aux.getOrigem().equals(this.origem) && aux.getDistancia() == this.distancia;
+           return aux.getDestino().equals(this.destino) && aux.getOrigem().equals(this.origem) && aux.getDistancia() == this.distancia || aux.getDestino().equals(this.origem) && aux.getOrigem().equals(this.destino) && aux.getDistancia() == this.distancia;
         }
         return false;
     }

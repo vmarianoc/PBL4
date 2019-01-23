@@ -20,8 +20,8 @@ public class Grafo {
     private List<Rotas> _rotas;
 
     public Grafo() {
-        _cidades = new ArrayList<Cidade>();
-        this._rotas = new ArrayList<Rotas>();
+        _cidades = new ArrayList<>();
+        this._rotas = new ArrayList<>();
     }
 
     public void adicionaVertice(int x, int y, String nome) {
