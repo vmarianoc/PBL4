@@ -1,8 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/** *****************************************************************************
+ * Autores: Vitor Cordeiro e Gustavo Mendes
+ * Componente Curricular: MI - Programação II
+ * Concluido em: 08/02/2018
+ * Declaramos que este código foi elaborado por nós de forma individual e não contém nenhum
+ * trecho de código de outro colega ou de outro autor, tais como provindos de livros e
+ * apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
+ * de outra autoria que não a minha está destacado com uma citação para o autor e a fonte
+ * do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
+ ***************************************************************************************** */
 package Model;
 
 import java.util.ArrayList;
@@ -14,7 +19,7 @@ import java.util.LinkedList;
 /**
  * Classe responsavel por Calcular o menor caminho.
  *
- * @author gusta
+ * @author Vitor e Gustavo
  */
 public class Dijkstra {
 
@@ -31,6 +36,10 @@ public class Dijkstra {
 
     /**
      * Metodo que realiza o algoritmo de Dijkstra.
+     *
+     * @param origem
+     * @param destino
+     * @return
      */
     public ArrayList caminho(Cidade origem, Cidade destino) {
         Cidade aux = null;
@@ -56,6 +65,13 @@ public class Dijkstra {
         return menor_caminho;
     }
 
+    /**
+     * Método que retorna a cidade anterior.
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     private ArrayList retornaRota(ArrayList a, Cidade b) {
         Cidade aux = b;
         while (aux.getAnterior() != null) {
@@ -67,7 +83,11 @@ public class Dijkstra {
 
     /**
      * Coloca o elemento de origem com peso 0 e todos os outros elementos da
-     * lista em infinito
+     * lista em infinito.
+     *
+     * @param cidades
+     * @param origem
+     * @return
      */
     private LinkedList infinito(LinkedList<Cidade> cidades, Cidade origem) {
         ComparaCidade c = new ComparaCidade();
@@ -84,6 +104,9 @@ public class Dijkstra {
 
     /**
      * Altera o peso das Cidades para uma estimatva do peso delas.
+     *
+     * @param a
+     * @param b
      */
     private void alteraPeso(LinkedList a, Cidade b) {
         Cidade auxC;
@@ -103,6 +126,13 @@ public class Dijkstra {
         }
     }
 
+    /**
+     * Retorna a Cidade da Lista.
+     *
+     * @param a
+     * @param b
+     * @return
+     */
     private Cidade getCLista(LinkedList a, Cidade b) {
         Iterator it = a.listIterator();
         Cidade aux;
@@ -117,6 +147,10 @@ public class Dijkstra {
 
     /**
      * Retorna a cidade diferente da atual cidade passada.
+     *
+     * @param a
+     * @param b
+     * @return
      */
     private Cidade getCidade(Rotas a, Cidade b) {
         if (a.getDestino().equals(b)) {
