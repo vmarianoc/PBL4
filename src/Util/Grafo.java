@@ -8,7 +8,6 @@
  * de outra autoria que não a minha está destacado com uma citação para o autor e a fonte
  * do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
  ***************************************************************************************** */
-
 package Util;
 
 import Model.Cidade;
@@ -17,8 +16,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
+ * Classe responsavel pelo comportamento de um Grafo.
  *
- * @author vitor
+ * @author Vitor e Gustavo
  */
 public class Grafo {
 
@@ -48,17 +48,17 @@ public class Grafo {
         fim.adicionaAdj(rotasAdj);
         _rotas.add(rotasAdj);
     }
-    
+
     /*
     Verifica se existe alguma cidade com aquelas cidades
-    */
-    private Rotas existeRotasComAsCidades(Cidade fim, Cidade inicio){
-        for (Rotas rotas : _rotas){
-            if(rotas.getOrigem().equals(fim) && rotas.getDestino().equals(inicio)){
+     */
+    private Rotas existeRotasComAsCidades(Cidade fim, Cidade inicio) {
+        for (Rotas rotas : _rotas) {
+            if (rotas.getOrigem().equals(fim) && rotas.getDestino().equals(inicio)) {
                 return rotas;
             }
         }
         return null;
     }
-    
+
 }

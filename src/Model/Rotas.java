@@ -11,8 +11,9 @@
 package Model;
 
 /**
+ * Classe responsavel pelo comportamento de uma Rota.
  *
- * @author vitor
+ * @author Vitor e Gustavo
  */
 public class Rotas {
 
