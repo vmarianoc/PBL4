@@ -75,7 +75,7 @@ public class Dijkstra {
             if (cidade.equals(origem)) {
                 cidade.setPeso(0);
             } else {
-                cidade.setPeso(9999);
+                cidade.setPeso(Integer.	MAX_VALUE);
             }
         }
         Collections.sort(cidades, c);

@@ -73,13 +73,14 @@ public class CadastroVeiculo extends javax.swing.JFrame {
                             .addComponent(jTextField2, javax.swing.GroupLayout.DEFAULT_SIZE, 624, Short.MAX_VALUE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(286, 286, 286)
-                        .addComponent(jButton1)
+                        .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(253, 253, 253)
-                        .addComponent(jButton2))
+                        .addComponent(jButton2)
+                        .addGap(187, 187, 187))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(435, 435, 435)
                         .addComponent(jLabel1)))
-                .addContainerGap(210, Short.MAX_VALUE))
+                .addGap(210, 210, 210))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
