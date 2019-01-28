@@ -5,6 +5,8 @@
  */
 package View;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author vitor
@@ -35,7 +37,8 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
+        setType(java.awt.Window.Type.POPUP);
 
         jLabel1.setText("Cadastro de Veículos");
 
@@ -53,6 +56,11 @@ public class CadastroVeiculo extends javax.swing.JFrame {
         jTextField2.setText("Consumo por litro ");
 
         jButton1.setText("Concluir");
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
 
         jButton2.setText("Voltar");
 
@@ -108,6 +116,13 @@ public class CadastroVeiculo extends javax.swing.JFrame {
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField1ActionPerformed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+            // TODO add your handling code here:
+            ArrayList<String> aux = new ArrayList<>();
+            aux.add(jTextField1.getText());
+            aux.add(jTextField2.getText());
+    }//GEN-LAST:event_jButton1MouseClicked
 
     /**
      * @param args the command line arguments

@@ -19,8 +19,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
+ * Classe responsavel pelo comportamento de uma leitura de um arquivo.
  *
- * @author vitor
+ * @author Vitor e Gustavo
  */
 public class Leitura {
 
@@ -30,7 +31,13 @@ public class Leitura {
     public Leitura() {
         f1 = new File(".\\Arquivos\\Mapa.txt");
     }
-
+    
+    /**
+     * Método que é responsável pela leitura de um arquivo e população de informações do sistema.
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public Mapa readFile() throws FileNotFoundException, IOException {
         /*
         Faz a leitura do arquivo linha a linha, 
@@ -64,7 +71,14 @@ public class Leitura {
         }
         return mapa;
     }
-
+    
+    /**
+     * Método lê uma linha e transforma em dados de uma cidade.
+     * @param x
+     * @param y
+     * @param nome
+     * @return 
+     */
     private Cidade dadosCidade(String x, String y, String nome) {
         /*
         Método recebe uma linha inteira, divide os dados e coloca em uma cidade

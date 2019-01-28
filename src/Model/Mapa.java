@@ -15,8 +15,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
+ * Classe responsavel pelo comportamento de um Mapa.
  *
- * @author vitor
+ * @author Vitor e Gustavo
  */
 public class Mapa {
 
@@ -34,7 +35,7 @@ public class Mapa {
     }
     
     /**
-     * Metodo responsavel por adicionar as rotas as cidades. Busca em uma lista
+     * Método responsavel por adicionar as rotas as cidades. Busca em uma lista
      * a cidade origem ou destino e então adiciona a rota a esta cidade caso
      * encontre.
      * @param origem
