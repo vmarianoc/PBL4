@@ -1,8 +1,13 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/** *****************************************************************************
+ * Autores: Vitor Cordeiro e Gustavo Mendes
+ * Componente Curricular: MI - Programação II
+ * Concluido em: 08/02/2018
+ * Declaramos que este código foi elaborado por nós de forma individual e não contém nenhum
+ * trecho de código de outro colega ou de outro autor, tais como provindos de livros e
+ * apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
+ * de outra autoria que não a minha está destacado com uma citação para o autor e a fonte
+ * do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
+ ***************************************************************************************** */
 package Model;
 
 import java.awt.List;
@@ -10,8 +15,9 @@ import java.util.Iterator;
 import java.util.LinkedList;
 
 /**
+ * Classe responsavel pelo comportamento de um Mapa.
  *
- * @author vitor
+ * @author Vitor e Gustavo
  */
 public class Mapa {
 
@@ -29,15 +35,18 @@ public class Mapa {
     }
     
     /**
-     * Metodo responsavel por adicionar as rotas as cidades. Busca em uma lista
+     * Método responsavel por adicionar as rotas as cidades. Busca em uma lista
      * a cidade origem ou destino e então adiciona a rota a esta cidade caso
      * encontre.
+     * @param origem
+     * @param destino
+     * @param distancia
      **/
     public void add_rota(Cidade origem, Cidade destino, String distancia) {
         Iterator it = mapa.iterator();
         Cidade p;
         int x;
-        x = Integer.parseInt(distancia);
+        x = Integer.parseInt(distancia.trim());
         Rotas aux = new Rotas(origem, destino, x);
         while(it.hasNext()){
             p = (Cidade) it.next();
@@ -49,5 +58,9 @@ public class Mapa {
     
     public Iterator getCidades(){
         return mapa.iterator();
+    }
+    
+    public LinkedList<Cidade> getLista(){
+        return mapa;
     }
 }

@@ -1,8 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+/** *****************************************************************************
+ * Autores: Vitor Cordeiro e Gustavo Mendes
+ * Componente Curricular: MI - Programação II
+ * Concluido em: 08/02/2018
+ * Declaramos que este código foi elaborado por nós de forma individual e não contém nenhum
+ * trecho de código de outro colega ou de outro autor, tais como provindos de livros e
+ * apostilas, e páginas ou documentos eletrônicos da Internet. Qualquer trecho de código
+ * de outra autoria que não a minha está destacado com uma citação para o autor e a fonte
+ * do código, e estou ciente que estes trechos não serão considerados para fins de avaliação.
+ ***************************************************************************************** */
+
 package Model;
 
 import java.io.BufferedReader;
@@ -13,8 +19,9 @@ import java.io.IOException;
 import java.util.Scanner;
 
 /**
+ * Classe responsavel pelo comportamento de uma leitura de um arquivo.
  *
- * @author vitor
+ * @author Vitor e Gustavo
  */
 public class Leitura {
 
@@ -22,9 +29,15 @@ public class Leitura {
     Mapa mapa;
 
     public Leitura() {
-        f1 = new File(".\\Arquivos\\arquivodeentrada.txt");
+        f1 = new File(".\\Arquivos\\Mapa.txt");
     }
-
+    
+    /**
+     * Método que é responsável pela leitura de um arquivo e população de informações do sistema.
+     * @return
+     * @throws FileNotFoundException
+     * @throws IOException 
+     */
     public Mapa readFile() throws FileNotFoundException, IOException {
         /*
         Faz a leitura do arquivo linha a linha, 
@@ -58,7 +71,14 @@ public class Leitura {
         }
         return mapa;
     }
-
+    
+    /**
+     * Método lê uma linha e transforma em dados de uma cidade.
+     * @param x
+     * @param y
+     * @param nome
+     * @return 
+     */
     private Cidade dadosCidade(String x, String y, String nome) {
         /*
         Método recebe uma linha inteira, divide os dados e coloca em uma cidade
@@ -66,9 +86,9 @@ public class Leitura {
         Cidade cidade;
         int a;
         int b;
-        a = Integer.parseInt(x);
-        b = Integer.parseInt(y);
-        cidade = new Cidade(a, b, nome);
+        a = Integer.parseInt(x.trim());
+        b = Integer.parseInt(y.trim());
+        cidade = new Cidade(a, b, nome.trim());
         return cidade;
     }
 }
