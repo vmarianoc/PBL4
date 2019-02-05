@@ -27,7 +27,7 @@ public class ControlModel {
     
     public ControlModel(){
        leitura = new Leitura();
-        veiculos = new LinkedList<>();
+       veiculos = new LinkedList<>();
     }
     
     public void carregarArquivo() throws IOException{
