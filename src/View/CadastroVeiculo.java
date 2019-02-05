@@ -5,7 +5,6 @@
  */
 package View;
 
-import Model.Veiculos;
 import java.util.ArrayList;
 
 /**
@@ -120,10 +119,9 @@ public class CadastroVeiculo extends javax.swing.JFrame {
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
             // TODO add your handling code here:
-            Veiculos aux = new Veiculos(jTextField1.getText(), Double.parseDouble(jTextField2.getText()));
-            //colocar numa garagem de veiculos, uma lista
-            
-            
+            ArrayList<String> aux = new ArrayList<>();
+            aux.add(jTextField1.getText());
+            aux.add(jTextField2.getText());
     }//GEN-LAST:event_jButton1MouseClicked
 
     /**
