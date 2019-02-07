@@ -5,17 +5,23 @@
  */
 package View;
 
+import Model.Mapa;
+
 /**
  *
  * @author vitor
  */
 public class TelaRotas extends javax.swing.JFrame {
-
     /**
      * Creates new form TelaRotas
+
      */
     public TelaRotas() {
         initComponents();
+    }
+    
+    public void desenharMapa(Mapa mapa){
+        
     }
 
     /**
@@ -149,7 +155,7 @@ public class TelaRotas extends javax.swing.JFrame {
                 .addComponent(jLabel4)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(62, 62, 62)
+                .addGap(53, 53, 53)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel6)
@@ -266,10 +272,8 @@ public class TelaRotas extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new TelaRotas().setVisible(true);
-            }
+        java.awt.EventQueue.invokeLater(() -> {
+            new TelaRotas().setVisible(true);
         });
     }
 
