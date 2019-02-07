@@ -5,7 +5,9 @@
  */
 package Controller;
 
+import View.TelaRotas;
 import java.awt.event.ActionListener;
+import java.io.IOException;
 
 /**
  *
@@ -13,12 +15,15 @@ import java.awt.event.ActionListener;
  */
 public class Controller {
     private ControlModel model;
-    //private classe da view;
+    private TelaRotas view;
     
-   /**
-    * Essa classe vai fazer a interação view model;
-    * Qualquer action Listener necessario sera criado nessa classe e passado como
-    * parametro para a classe da view que esta sendo criada. Os action Listener serão
-    * classes internas/privadas e iram utilizar a chamada de metodos da ControlMOdel.
-    */
+   public Controller() throws IOException{
+       model = new ControlModel();
+       view = new TelaRotas();
+   }
+   public static void main(String args[]) throws IOException{
+        Controller controller = new Controller();
+        controller.view.desenharMapa(controller.model.getMapa());
+        controller.view.setVisible(true);
+   }
 }

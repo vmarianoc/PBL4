@@ -25,13 +25,10 @@ public class ControlModel {
     private LinkedList<Veiculos> veiculos;
     
     
-    public ControlModel(){
+    public ControlModel() throws IOException{
        leitura = new Leitura();
        veiculos = new LinkedList<>();
-    }
-    
-    public void carregarArquivo() throws IOException{
-        mapa = leitura.readFile();
+       mapa = leitura.readFile();
     }
     
     public void addVeiculo(Veiculos a){
@@ -43,5 +40,9 @@ public class ControlModel {
         dijkstra = new Dijkstra(mapa.getLista());
         aux = dijkstra.caminho(origem, destino);
         return aux;
+    }
+    
+    public Mapa getMapa(){
+        return mapa;
     }
 }
