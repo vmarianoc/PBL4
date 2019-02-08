@@ -5,25 +5,49 @@
  */
 package Controller;
 
+import View.Canvas;
 import View.TelaRotas;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 /**
  *
  * @author gusta
  */
 public class Controller {
+
     private ControlModel model;
-    private TelaRotas view;
-    
-   public Controller() throws IOException{
-       model = new ControlModel();
-       view = new TelaRotas();
-   }
-   public static void main(String args[]) throws IOException{
+    private Canvas view;
+    private TelaRotas mainview;
+
+    public Controller() throws IOException {
+        model = new ControlModel();
+        view = new Canvas();
+        mainview = new TelaRotas();
+    }
+
+    public double calculaValor(ArrayList cidades) {
+        double consumo = mainview.getConsumo();
+        double valor = mainview.getValor();
+        int distancia = model.distanciaMenorCaminho(cidades);
+        return (distancia / consumo) * valor;
+    }
+
+    public int distanciaTotal(ArrayList cidades) {
+        return model.distanciaMenorCaminho(cidades);
+    }
+
+    public double volumeTotal(ArrayList cidades) {
+        double consumo = mainview.getConsumo();
+        int distancia = model.distanciaMenorCaminho(cidades);
+        return (distancia / consumo);
+    }
+
+    public static void main(String args[]) throws IOException {
         Controller controller = new Controller();
         controller.view.desenharMapa(controller.model.getMapa());
-        controller.view.setVisible(true);
-   }
+ //       controller.mainview.criarJList(model.getModelo());
+        controller.mainview.setVisible(true);
+    }
 }

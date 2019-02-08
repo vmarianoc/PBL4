@@ -112,4 +112,17 @@ public class Cidade {
         }
         return false;
     }
+
+    public Rotas getRotaAdjacentes(Cidade b) {
+        int i = 0;
+        while (i < adjacente.size()) {
+            if (adjacente.get(i).getDestino().equals(b)) {
+                return adjacente.get(i);
+            } else {
+                i++;
+            }
+        }
+        return null;
+    }
+
 }
