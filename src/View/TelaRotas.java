@@ -5,7 +5,9 @@
  */
 package View;
 
+import Model.Cidade;
 import Model.Mapa;
+import java.util.Iterator;
 
 /**
  *
@@ -21,7 +23,11 @@ public class TelaRotas extends javax.swing.JFrame {
     }
     
     public void desenharMapa(Mapa mapa){
-        
+        Cidade aux;
+        Iterator it = mapa.getCidades();
+        while(it.hasNext()){
+            aux = (Cidade) it.next();
+        }
     }
 
     /**
